@@ -6,7 +6,7 @@ public class GasTank : MonoBehaviour
 {
   
     public float gasAmt;
-
+  public float carHealth;
     void FixedUpdate()
     {
       if (gasAmt != 0)
@@ -20,5 +20,8 @@ public class GasTank : MonoBehaviour
       gasAmt -= 0.05f;
       yield return new WaitForSeconds(1.25f);
     }
-  
+  public void GetWrecked(float dmg) 
+  {
+    carHealth -= dmg;
+  }
 }

@@ -10,8 +10,12 @@ public class GasPickup : MonoBehaviour
     tank = GameObject.FindGameObjectWithTag("Player").GetComponent<GasTank>();
   }
  
-  private void OnTriggerEnter(Collider other)
+  private void OnTriggerEnter2D(Collider2D other)
   {
-    if (other.tag == "Player") { Debug.Log("In trigger"); }
+    if (other.tag == "Player" && tank.gasAmt < 75)
+    {
+      tank.gasAmt += 25f;
+      Destroy(this.gameObject);
+    }
   }
 }
