@@ -18,17 +18,11 @@ public class BluecarMovement : MonoBehaviour
     initialPosition.y = this.transform.position.y;
     rigidB = this.GetComponent<Rigidbody2D>();
     tank = GameObject.FindGameObjectWithTag("Player").GetComponent<GasTank>();
-    carPosition.x = Random.Range(-750f, -1000f);
+    carPosition.x = Random.Range(carPosition.x, -1000f);
     rigidB.AddForce(carPosition);
     
     }
-  private void FixedUpdate()
-  {
-    if (this.transform.position.x <= targetPosition.x) 
-    {
-      rigidB.MovePosition(initialPosition);
-    }
-  }
+  
   private void OnTriggerEnter2D(Collider2D collision)
   {
     if (collision.CompareTag("Player")) 
