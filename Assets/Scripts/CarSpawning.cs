@@ -13,7 +13,7 @@ public class CarSpawning : MonoBehaviour
   {
     if (Time.time >= nextSpawn)
     {
-      Instantiate(cars[Random.Range(0, 3)], spawnPoints[Random.Range(0, 3)].transform);
+      Instantiate(cars[Random.Range(0, 4)], spawnPoints[Random.Range(0, 3)].transform);
       nextSpawn = Time.time + 1f / spawnRate;
     }
   }

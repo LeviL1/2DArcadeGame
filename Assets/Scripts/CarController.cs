@@ -11,7 +11,8 @@ public class CarController : MonoBehaviour
   float accelerationInput = 0f;
   float steeringInput = 0f;
   float rotationAngle = 0f;
-
+  float extragas = 0f;
+  public float gasRate;
   float velvsUp = 0f;
   Rigidbody2D carRigidbdy;
 
@@ -21,9 +22,22 @@ public class CarController : MonoBehaviour
     carRigidbdy = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+  // Update is called once per frame
+  private void Update()
+  {
+    if (Input.GetKeyDown(KeyCode.Space) && Time.time >= extragas)
     {
+      carRigidbdy.AddForce(transform.right * 250, ForceMode2D.Force);
+      extragas = Time.time + 1f / gasRate;
+    }
+    if (Input.GetKeyDown(KeyCode.LeftShift)) 
+    {
+      carRigidbdy.AddForce(transform.right * -250, ForceMode2D.Force);
+    }
+  }
+  void FixedUpdate()
+    {
+    
     ApplyEngineForce();
 
     ApplySteering();

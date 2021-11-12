@@ -28,6 +28,12 @@ public class BluecarMovement : MonoBehaviour
     if (collision.CompareTag("Player")) 
     {
       tank.GetWrecked(25);
+      ScoreKeep.SubtractScore();
+    }
+    if (collision.CompareTag("Enemy"))
+    {
+      Destroy(collision.gameObject);
+      Destroy(this.gameObject);
     }
   }
 

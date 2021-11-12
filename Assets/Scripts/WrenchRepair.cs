@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GasPickup : MonoBehaviour
+public class WrenchRepair : MonoBehaviour
 {
   private GasTank tank;
   private Rigidbody2D body;
@@ -12,13 +12,16 @@ public class GasPickup : MonoBehaviour
     tank = GameObject.FindGameObjectWithTag("Player").GetComponent<GasTank>();
     body.AddForce(new Vector2(-500, 0), ForceMode2D.Force);
   }
- 
-  private void OnTriggerEnter2D(Collider2D other)
+  private void OnTriggerEnter2D(Collider2D collision)
   {
-    if (other.tag == "Player" && tank.gasAmt < 75)
+    if (collision.CompareTag("Player")) 
     {
-      tank.gasAmt += 25f;
-      Destroy(this.gameObject);
+      if (tank.carHealth < 400)
+      {
+        tank.carHealth += 100;
+        Destroy(this.gameObject);
+      }
+
     }
   }
 }

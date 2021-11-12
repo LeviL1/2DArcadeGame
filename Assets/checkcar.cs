@@ -11,23 +11,16 @@ public class checkcar : MonoBehaviour
   {
     if (collision.transform.tag == "Enemy")
     {
-      othercollider.isTrigger = true;
+      Destroy(collision.gameObject, 2f);
     }
-    else { return; }
-  }
-  private void OnTriggerStay(Collider other)
-  {
-    if (other.tag == "Enemy")
+    if (collision.transform.tag == "Pickup") 
     {
-      othercollider.isTrigger = true;
+      Destroy(collision.gameObject, 2f);
     }
+    
   }
-  private void OnTriggerExit2D(Collider2D other)
-  {
-    if (other.tag == "Enemy") 
-    {
-      othercollider.isTrigger = false;
-    }
-  }
+  
+
+  
 
 }
