@@ -14,7 +14,7 @@ public class LoadLvlSelect : MonoBehaviour
   }
   public void LoadLVL2()
   {
-    SceneManager.LoadScene("LVL2", LoadSceneMode.Single);
+    SceneManager.LoadScene("Lvl2", LoadSceneMode.Single);
   }
   
   public void LoadMainMenu()
